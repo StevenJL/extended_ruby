@@ -69,12 +69,14 @@ on the original object everytime a duplicate is found.
 ```ruby
 my_array = ExtendedRuby::Array.new([['a', 1], ['b', 4], ['b', 3], ['c', 5], ['d', 1], ['d', 2]])
 ```
-Suppose you wanted to remove all duplicates in the array (where duplicate is defined by the first element) but you also want to go back to the first one and concatenate it.
+Suppose you wanted to remove all duplicates in the array (where duplicate is defined by the first element) but you also want to go back to the first original elment and sum the numbers up.
 
 ```ruby
+# callback will always take two arguments, the original and a new found duplicate
 my_callback = lambda do |original, duplicate| 
   [original.first, original.second + duplicate.second]
-end # callback will always take two arguments, the original and a new found duplicate
+end 
+
 my_array.uniq_callback(my_callback) { |x| x[0] }
 => [['a', 1], ['b', 7], ['c', 5], ['d', 3]])
 ```
