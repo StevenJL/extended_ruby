@@ -1,5 +1,5 @@
 language: ruby
 rvm:
   - 2.1.2
-script: "bundle exec rake"
+script: "CODECLIMATE_REPO_TOKEN=28887ba3bb316efd91ce239437120a3e02b49cea9cdca094500ea8ba7995084b bundle exec rake bundle exec rake"
 
