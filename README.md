@@ -37,7 +37,7 @@ Has all the functionality of a normal Ruby `Array` but with additional methods.
 require 'extended_ruby/array'
 
 # instantiate an extended_ruby array
-my_array = ExtendedRuby::Array.new([1, 2, 3, 4]
+my_array = ExtendedRuby::Array.new([1, 2, 3, 4])
 
 # note it has all the functionality of any normal array
 my_array.map {|x| x+1  } => [2, 3, 4, 5]
