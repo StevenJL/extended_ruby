@@ -1,5 +1,6 @@
 #### Status
 [![Build Status](https://travis-ci.org/StevenJL/extended_ruby.svg?branch=master)](https://travis-ci.org/StevenJL/extended_ruby)
+[![Code Climate](https://codeclimate.com/github/StevenJL/extended_ruby/badges/gpa.svg)](https://codeclimate.com/github/StevenJL/extended_ruby)
 
 # ExtendedRuby
 
