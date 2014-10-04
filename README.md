@@ -1,8 +1,12 @@
+#### Status
+[![Build Status](https://travis-ci.org/StevenJL/extended_ruby.svg?branch=master)](https://travis-ci.org/StevenJL/extended_ruby)
+
 # ExtendedRuby
 
 Extensions of various Ruby classes. The added functionality may seem really specific, but I put it in this gem because:
 
-a) I needed this exact functionality to clean up code at the time. 
+a) I needed this exact functionality to clean up some other code at the time. 
+
 b) I can see this functionality being re-used again.
 
 A growing project.
