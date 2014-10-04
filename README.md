@@ -48,7 +48,7 @@ end
 => true
 ```
 
-##### blindex
+##### #blindex
 ```
 Finds index of first item in array whose equal to the target when given block is applied to the item
 [['a','apple'],['b','banana'],['c','cat']].blindex('banana') do |x|
@@ -57,7 +57,7 @@ end
 => 0
 ```
 
-##### bluniq
+##### #bluniq
 Short for block uniq, this method makes your array unique based on criteria you define, but also takes a callback which it invokes
 on the original object everytime a duplicate is found.
 
