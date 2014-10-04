@@ -47,8 +47,9 @@ my_array.select {|x| x.even?} => [2, 4]
 ##### #blinclude?
 Like `#include` but takes a block which is applied to array element before comparing with argument.
 ```ruby
-[['a','apple'],['b','banana'],['c','cat']].blinclude?('banana') do |x|
-  x[1]
+# Is there an array here whose sum is a multiple of 3? Find out with blinclude?
+[[1,0,9], [3,3,5,-2], [1,1,1,1]].blinclude?(0) do |x|
+  x.inject(:+) % 3  
 end
 => true
 ```
