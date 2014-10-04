@@ -49,22 +49,28 @@ end
 ```
 
 ##### blindex
+```
 Finds index of first item in array whose equal to the target when given block is applied to the item
 [['a','apple'],['b','banana'],['c','cat']].blindex('banana') do |x|
   x[1]
 end
 => 0
+```
 
 ##### bluniq
 Short for block uniq, this method makes your array unique based on criteria you define, but also takes a callback which it invokes
 on the original object everytime a duplicate is found.
 
+```
+my_array = ExtendedRuby::Array.new([['a', 1], ['b', 4], ['b', 3], ['c', 5], ['d', 1], ['d', 2]])
 # suppose you wanted to remove all duplicates in the array (where duplicate is defined by the first element)
 # but you also want to go back to the first one and concatenate it.
 
-my_callback = Lambda { |original, duplicate| } # callback will always take two arguments, the original and a new found duplicate
-my_array.uniq_callback(criteria) { |x| x[0] }
-
+my_callback = lambda do |original, duplicate| 
+  [original.first, original.second + duplicate.second]
+end # callback will always take two arguments, the original and a new found duplicate
+my_array.uniq_callback(my_callback) { |x| x[0] }
+=> [['a', 1], ['b', 7], ['c', 5], ['d', 3]])
 ```
 
 ## Contributing
