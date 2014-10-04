@@ -32,7 +32,7 @@ Or install it yourself as:
 #### ExtendedRuby::Array
 Has all the functionality of a normal Ruby `Array` but with additional methods.
 
-```
+```ruby
 # first require it
 require 'extended_ruby/array'
 
@@ -54,7 +54,7 @@ end
 ```
 
 ##### #blindex
-```
+```ruby
 Finds index of first item in array whose equal to the target when given block is applied to the item
 [['a','apple'],['b','banana'],['c','cat']].blindex('banana') do |x|
   x[1]
@@ -66,11 +66,12 @@ end
 Short for block uniq, this method makes your array unique based on criteria you define, but also takes a callback which it invokes
 on the original object everytime a duplicate is found.
 
-```
+```ruby
 my_array = ExtendedRuby::Array.new([['a', 1], ['b', 4], ['b', 3], ['c', 5], ['d', 1], ['d', 2]])
-# suppose you wanted to remove all duplicates in the array (where duplicate is defined by the first element)
-# but you also want to go back to the first one and concatenate it.
+```
+Suppose you wanted to remove all duplicates in the array (where duplicate is defined by the first element) but you also want to go back to the first one and concatenate it.
 
+```ruby
 my_callback = lambda do |original, duplicate| 
   [original.first, original.second + duplicate.second]
 end # callback will always take two arguments, the original and a new found duplicate
