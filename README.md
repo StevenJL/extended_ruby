@@ -56,7 +56,7 @@ end
 
 ##### #blindex
 ```ruby
-Finds index of first item in array whose equal to the target when given block is applied to the item
+# Finds index of first item in array whose equal to the target when given block is applied to the item
 [['a','apple'],['b','banana'],['c','cat']].blindex('banana') do |x|
   x[1]
 end
