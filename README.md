@@ -1,6 +1,10 @@
 # ExtendedRuby
 
-Extensions of various Ruby classes. 
+Extensions of various Ruby classes. The added functionality may seem really specific, but I put it in this gem because:
+
+a) I needed this exact functionality to clean up code at the time. 
+b) I can see this functionality being re-used again.
+
 A growing project.
 
 
@@ -21,24 +25,45 @@ Or install it yourself as:
 ## Usage
 
 #### ExtendedRuby::Array
-Has all the functionality of your average `Array` but with a `uniq_wc` method (short for Unique with Callback).
-This method makes your array unique based on criteria you define, but also takes a callback which it invokes
-on the original object everytime a duplicate is found.
+Has all the functionality of a normal Ruby `Array` but with additional methods.
 
 ```
+# first require it
+require 'extended_ruby/array'
+
 # instantiate an extended_ruby array
-my_array = ExtendedRuby::Array.new([['a', 1], ['b', 4], ['b', 3], ['c', 5], ['d', 1], ['d', 2]])
+my_array = ExtendedRuby::Array.new([1, 2, 3, 4]
 
 # note it has all the functionality of any normal array
-my_array.map {|x| "#{x[0]}#{x[1]}"} => ['a1', 'b4', 'b3', 'c5', 'd1', 'd2']
-my_array.select {|x| x[1].even?} => [['b', 4], ['d', 2]]
+my_array.map {|x| x+1  } => [2, 3, 4, 5]
+my_array.select {|x| x.even?} => [2, 4]
+```
 
-# suppose you wanted to remove all duplicates in the array but also everytime you found a duplicate,
-# you want to go back to the first one and concatenate it
+##### #blinclude?
+Like `#include` but takes a block which is applied to array element before comparing with argument.
+```ruby
+[['a','apple'],['b','banana'],['c','cat']].blinclude?('banana') do |x|
+  x[1]
+end
+=> true
+```
 
-my_criteria = Lambda { |array| array.first } # uniqueness is determined by the first element
-my_callback = Lambda { |original, duplicate| original[2] = original[2] + duplicate[2] }
-my_array.uniq_wc(:criteria => my_criteria, :callback => my_callback)
+##### blindex
+Finds index of first item in array whose equal to the target when given block is applied to the item
+[['a','apple'],['b','banana'],['c','cat']].blindex('banana') do |x|
+  x[1]
+end
+=> 0
+
+##### bluniq
+Short for block uniq, this method makes your array unique based on criteria you define, but also takes a callback which it invokes
+on the original object everytime a duplicate is found.
+
+# suppose you wanted to remove all duplicates in the array (where duplicate is defined by the first element)
+# but you also want to go back to the first one and concatenate it.
+
+my_callback = Lambda { |original, duplicate| } # callback will always take two arguments, the original and a new found duplicate
+my_array.uniq_callback(criteria) { |x| x[0] }
 
 ```
 
