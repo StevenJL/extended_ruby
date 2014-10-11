@@ -78,7 +78,7 @@ my_callback = lambda do |original, duplicate|
   [original.first, original.second + duplicate.second]
 end 
 
-my_array.uniq_callback(my_callback) { |x| x[0] }
+my_array.bluniq(my_callback) { |x| x[0] }
 => [['a', 1], ['b', 7], ['c', 5], ['d', 3]])
 ```
 
